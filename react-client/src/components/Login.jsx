@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-// prettier-ignore
-const Login = () => {
+const Login = ({ setcurrentUser }) => {
 	const [view, setView] = useState("signin");
 	const [signup, setSignup] = useState({
 		username: "",
-		name: "",
-		type: "",
+		fullname: "",
+		category: "owner",
 		email: "",
 		password: "",
 		status: "",
@@ -22,7 +21,11 @@ const Login = () => {
 		let key = e.target.name;
 		let value = e.target.value;
 		let obj = signup;
-		obj[key] = value;
+		if (key === "profile_image_uri") {
+			obj[key] = e.target.files[0];
+		} else {
+			obj[key] = value;
+		}
 		setSignup(obj);
 	};
 
@@ -34,35 +37,57 @@ const Login = () => {
 		setSignin(obj);
 	};
 
-    const signupFN = () => {
-        console.log("signup ", signup);
-        axios.post('/auth/signup', signup)
-            .then(({ data }) => {
-                // setSignup({
-                //     username: "",
-                //     name: "",
-                //     email: "",
-                //     password: "",
-                //     status: data
-                //     //reset the signup state
-                //     //status : data => "username already exist" - "account created" 
-                // })
-            })
-            .catch((err) => console.log("Login Component => signup error : ", err));
-    }
+	const uploadeImage = (file) => {
+		const formData = new FormData();
+		formData.append("file", file);
+		formData.append("upload_preset", "rgofaujc");
+		return axios.post(
+			"http://api.cloudinary.com/v1_1/geekitten/image/upload",
+			formData
+		);
+	};
 
-    const signinFN = () => {
-        console.log("signin ", signin);
-        axios.post('/auth/signin', signin)
-            .then(({ data }) => {
-                // console.log("login response : ", data);
-                // if (Array.isArray(data)) this.props.account(data[0]);
-                // if there is an account pass this account to global state
-                // else this.setState({ status2: data });
-                //status : data => "username doesn't exist" - "wrrong username/password"
-            })
-            .catch((err) => console.log("Authentification => signin error : ", err));
-    }
+	const signupFN = () => {
+		// console.log("signup ", signup);
+		uploadeImage(signup.profile_image_uri)
+			.then(({ data }) => {
+				let user = signup;
+				user.profile_image_uri = data.public_id;
+				console.log(user);
+				axios.post("/auth/signup", user);
+			})
+			.then(({ data }) => {
+				setSignup({
+					username: "",
+					name: "",
+					email: "",
+					password: "",
+					status: data,
+					//reset the signup state
+					//status : data => "username already exist" - "account created"
+				});
+			})
+			.catch((err) =>
+				console.log("Login Component => signup error : ", err)
+			);
+	};
+
+	const signinFN = () => {
+		console.log("signin ", signin);
+		axios
+			.post("/auth/signin", signin)
+			.then(({ data }) => {
+				console.log("login response : ", data);
+				setcurrentUser(data);
+				// if (Array.isArray(data)) this.props.account(data[0]);
+				// if there is an account pass this account to global state
+				// else this.setState({ status2: data });
+				//status : data => "username doesn't exist" - "wrrong username/password"
+			})
+			.catch((err) =>
+				console.log("Authentification => signin error : ", err)
+			);
+	};
 
 	return (
 		<div className='login'>
@@ -101,7 +126,7 @@ const Login = () => {
 					<input
 						className='name-input'
 						onChange={changeSignUp}
-						name='name'
+						name='fullname'
 						placeholder='name'
 						type='text'
 					/>
@@ -113,11 +138,26 @@ const Login = () => {
 						type='text'
 					/>
 					<input
+						className='phone-input'
+						onChange={changeSignUp}
+						name='phone_number'
+						placeholder='Phone Number'
+						type='text'
+					/>
+					<select
+						name='category'
+						onChange={changeSignUp}
+						placeholder='type'
+					>
+						<option value='owner'>Owner</option>
+						<option value='renter'>Renter</option>
+					</select>
+					<input
 						className='type-input'
 						onChange={changeSignUp}
-						name='type'
+						name='profile_image_uri'
 						placeholder='type'
-						type='text'
+						type='file'
 					/>
 					<div>
 						<button onClick={signupFN}> SignUp </button>{" "}

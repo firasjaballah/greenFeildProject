@@ -64,7 +64,6 @@ const Post = ({ post }) => {
 					>
 						<img src='https://cdn-icons.flaticon.com/png/512/1620/premium/1620739.png?token=exp=1639333638~hmac=f6f61bde2ec464d042b351ab4554892e' />
 					</span>
-					{/* <button onClick={() => setSlideShow(false)}>Close</button> */}
 					<SlidePics pictures={post.pictures} />
 				</div>
 			</div>,

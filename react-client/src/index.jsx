@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { Image } from "cloudinary-react";
 import axios from "axios";
 import Home from "./components/Home.jsx";
 import Feed from "./components/Feed.jsx";
@@ -10,23 +11,16 @@ import User from "./components/User.jsx";
 import Posts from "./components/Posts.jsx";
 
 const App = () => {
-	// this.state = {
-	// 	view: 'home',
-	// 	connect: false
-	// }
-	const [view, setView] = useState("user");
-	const [connect, setConnect] = useState(false); // changed to true for testing user component
-	// const [user,setuser]=useState({});
-
-	let user = {
-		_id: "1516845168135",
-		userName: "Khalil Hmazaoui",
-		email: "khalil_hamzaoui.gmail.com",
-		phoneNumber: 22556688,
-		categorie: "owner",
-		// categorie: "renter",
-		image: "https://images.unsplash.com/photo-1581599129568-e33151627628?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-	};
+	const [view, setView] = useState("home");
+	const [currentUser, setcurrentUser] = useState({
+		category: "",
+		phone_number: "",
+		email: "",
+		fullname: "",
+		username: "",
+		profile_image_uri: "",
+		connected: false,
+	});
 
 	const viewRender = () => {
 		// console.log("view render : ", this.state.view);
@@ -34,8 +28,9 @@ const App = () => {
 		else if (view === "feed") return <Feed />;
 		else if (view === "announces") return <Posts />;
 		else if (view === "contact") return <Contact />;
-		else if (view === "login" && !connect) return <Login />;
-		else return <User user={user} />;
+		else if (view === "login" && !currentUser.connected)
+			return <Login setcurrentUser={setcurrentUser} />;
+		else return <User user={currentUser} />;
 	};
 	return (
 		<div>
@@ -53,12 +48,20 @@ const App = () => {
 
 				<div className='right'>
 					<span onClick={() => setView("contact")}>Contact</span>
-					{connect ? (
+					{currentUser.connected ? (
 						<div
 							className='navbar-logout'
 							onClick={() => setView("login")}
 						>
-							<img className='navbar-user' src={user.image} />{" "}
+							<Image
+								style={{
+									borderRadius: "50%",
+									width: "30px",
+									heigth: "35px",
+								}}
+								cloudName='geekitten'
+								public_id={currentUser.profile_image_uri}
+							/>
 							<span>Logout</span>{" "}
 						</div>
 					) : (
