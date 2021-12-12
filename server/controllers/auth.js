@@ -7,39 +7,39 @@ const jwt = require("jsonwebtoken");
 const { secret } = require("../config/settings");
 
 const simplify = (error) => {
-    let simple_Error = {};
+	let simple_Error = {};
 
-    // Handling "is already registered" error
-    if (error.code === 11000) {
-        // console.log(error);
-        simple_Error["username"] = `That username is already registered.`;
-    }
+	// Handling "is already registered" error
+	if (error.code === 11000) {
+		// console.log(error);
+		simple_Error["username"] = `That username is already registered.`;
+	}
 
-    // Handling FrontEnd User Error
-    for (let key in error.errors) {
-        simple_Error[key] = error["errors"][key]["message"];
-    }
+	// Handling FrontEnd User Error
+	for (let key in error.errors) {
+		simple_Error[key] = error["errors"][key]["message"];
+	}
 
-    // incorrect email
-    if (error.message == "Incorrect username") {
-        simple_Error.email = "That username is not registered";
-    }
+	// incorrect email
+	if (error.message == "Incorrect username") {
+		simple_Error.email = "That username is not registered";
+	}
 
-    // incorrect email
-    if (error.message == "Incorrect password") {
-        simple_Error.password = "That password is not correct";
-    }
+	// incorrect email
+	if (error.message == "Incorrect password") {
+		simple_Error.password = "That password is not correct";
+	}
 
-    console.log({ error: simple_Error });
-    return { error: simple_Error };
+	console.log({ error: simple_Error });
+	return { error: simple_Error };
 };
 
 const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, secret, {
-        expiresIn: maxAge,
-    });
+	return jwt.sign({ id }, secret, {
+		expiresIn: maxAge,
+	});
 };
 
 // prettier-ignore
@@ -65,17 +65,25 @@ module.exports = {
         }
     },
     signup: async (req, res, next) => {
-        const { username, fullname, email, phone_number, category, password } =
-            req.body;
+        const {
+			username,
+			fullname,
+			email,
+			phone_number,
+			category,
+			password,
+			profile_image_uri,
+		} = req.body;
         try {
             const savedUser = await User.create({
-                username,
-                fullname,
-                email,
-                phone_number,
-                category,
-                password,
-            });
+				username,
+				fullname,
+				email,
+				phone_number,
+				category,
+				password,
+				profile_image_uri,
+			});
 
             const foundUser = await User
                                 .findById(savedUser._id)
