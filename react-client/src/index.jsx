@@ -23,7 +23,7 @@ const App = () => {
 		userName: "Khalil Hmazaoui",
 		email: "khalil_hamzaoui.gmail.com",
 		phoneNumber: 22556688,
-		categorie: "renter",
+		categorie: "owner",
 		// categorie: "renter",
 		image: "https://images.unsplash.com/photo-1581599129568-e33151627628?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
 	};
