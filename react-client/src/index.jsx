@@ -25,8 +25,8 @@ const App = () => {
 	const viewRender = () => {
 		// console.log("view render : ", this.state.view);
 		if (view === "home") return <Home />;
-		else if (view === "feed") return <Feed />;
-		else if (view === "announces") return <Posts />;
+		else if (view === "feed") return <Feed user={currentUser} />;
+		else if (view === "announces") return <Posts user={currentUser} />;
 		else if (view === "contact") return <Contact />;
 		else if (view === "login" && !currentUser.connected)
 			return <Login setcurrentUser={setcurrentUser} />;
@@ -49,11 +49,9 @@ const App = () => {
 				<div className='right'>
 					<span onClick={() => setView("contact")}>Contact</span>
 					{currentUser.connected ? (
-						<div
-							className='navbar-logout'
-							onClick={() => setView("login")}
-						>
+						<div className='navbar-logout'>
 							<Image
+								onClick={() => setView("user")}
 								style={{
 									borderRadius: "50%",
 									width: "30px",
@@ -62,7 +60,22 @@ const App = () => {
 								cloudName='geekitten'
 								public_id={currentUser.profile_image_uri}
 							/>
-							<span>Logout</span>{" "}
+							<span
+								onClick={() => {
+									setView("login");
+									setcurrentUser({
+										category: "",
+										phone_number: "",
+										email: "",
+										fullname: "",
+										username: "",
+										profile_image_uri: "",
+										connected: false,
+									});
+								}}
+							>
+								Logout
+							</span>{" "}
 						</div>
 					) : (
 						<span onClick={() => setView("login")}>Login</span>

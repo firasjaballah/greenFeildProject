@@ -4,14 +4,13 @@ import Post from "./Post.jsx";
 import dommyPosts from "../../../dammyData/data.js";
 import axios from "axios";
 
-// useEffect(() => {
-// 	axios.get("/api/ownerposts").then(({ data }) => {
-// 		setPostsList(data);
-// 	});
-// });
-
 const Posts = (props) => {
 	const [postsList, setPostsList] = useState(dommyPosts);
+	// useEffect(() => {
+	// 	axios.get("/api/ownerposts").then(({ data }) => {
+	// 		setPostsList(data);
+	// 	});
+	// }, []);
 
 	return (
 		<div>

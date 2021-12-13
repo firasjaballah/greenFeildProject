@@ -22,13 +22,13 @@ const Post = ({ post }) => {
 				<div className='details'>
 					<span></span>
 					<span>
-						<b>Nacer Mossaab</b>
+						<b>{post.username}</b>
 					</span>
 					<span>
 						<b>Location :</b> {post.address}
 					</span>
 					<span>
-						<b>Rooms :</b> {post.numberOfRooms}
+						<b>Rooms :</b> {"S+" + post.numberOfRooms}
 					</span>
 					<span>
 						<b>Price :</b> {post.price} tnd/month
@@ -38,11 +38,11 @@ const Post = ({ post }) => {
 					</span>
 					{/* <span> <b>Views :</b> 12 </span> */}
 					<span>
-						<button>
+						<button className='postBtn'>
 							<img src='https://img.icons8.com/ios-filled/15/4a90e2/new-message.png' />
 							Contact
 						</button>
-						<button>
+						<button className='postBtn'>
 							<img src='https://img.icons8.com/ios/15/26e07f/add-bookmark.png' />
 							Add To List
 						</button>
