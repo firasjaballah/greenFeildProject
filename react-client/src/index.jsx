@@ -25,7 +25,7 @@ const App = () => {
 	const viewRender = () => {
 		// console.log("view render : ", this.state.view);
 		if (view === "home") return <Home />;
-		else if (view === "feed") return <Feed />;
+		else if (view === "feed") return <Feed  user={currentUser}/>;
 		else if (view === "announces") return <Posts />;
 		else if (view === "contact") return <Contact />;
 		else if (view === "login" && !currentUser.connected)
