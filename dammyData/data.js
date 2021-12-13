@@ -11,6 +11,7 @@ let posts = [
 			"Situé à Tunis, à 1 km de la plage de Salambo, l'établissement Un emplacement exceptionnel propose un hébergement avec un jardin, une connexion Wi-Fi gratuite, une réception ouverte 24h/24 et un distributeur automatique de billets. Construit en 2019, il propose des hébergements climatisés avec balcon.",
 		address: "Salambo,",
 		price: 700,
+		username: "Ahmed Salemi",
 	},
 	{
 		pictures: [
@@ -24,6 +25,7 @@ let posts = [
 			"Offrant une vue sur le jardin, l'Apparts zayatine est situé à Tunis, à 12 km de l'avenue Habib Bourguiba. Vous bénéficierez gratuitement d'une connexion Wi-Fi et d'un parking privé. Tous les logements sont climatisés et certains disposent d'une télévision à écran plat, d'un lave-linge, d'une machine à café et d'une cuisine.",
 		address: "Rue Cheikh Mohamed Enneifer, Résidence Zayatine, bloc E6",
 		price: 800,
+		username: "Saida Khlifi",
 	},
 	{
 		pictures: [
@@ -37,6 +39,7 @@ let posts = [
 			"Situé à Tunis, à 12 km de l'avenue Habib Bourguiba et du parc du Belvédère, le DAR NOUR propose des hébergements avec une connexion Wi-Fi gratuite, la climatisation et un salon commun. Occupant un bâtiment datant de 2005, cet appartement se trouve à 13 km du musée Dar Lasram et du Dar Bach Hamba.",
 		address: "rue l'ile de jerba appart ndeg4, 2035 Tunis",
 		price: 650,
+		username: "Saidiya Boulabi",
 	},
 	{
 		pictures: [
@@ -50,6 +53,7 @@ let posts = [
 			"Situé à Tunis, à moins de 1,8 km du parc du Belvédère et à 3 km de la cathédrale Saint-Vincent-de-Paul, l'établissement Le 5 ter propose un hébergement avec une connexion Wi-Fi gratuite, la climatisation, une piscine extérieure et un jardin. Vous pourrez vous baigner dans la piscine privée. Ce logement comprend un coin salon ainsi qu'une cuisine équipée d'un micro-ondes, d'un réfrigérateur et d'un grille-pain.",
 		address: "Rue Kawakibi Belvédère, 1002 Tunis,",
 		price: 800,
+		username: "Mokhtar sadallah",
 	},
 	{
 		pictures: [
@@ -64,6 +68,7 @@ let posts = [
 		address:
 			"Rue du Dollar Résidence Le lac des cygnes, Les Berges du Lac, 1053",
 		numberOfRooms: 500,
+		username: "Sabri khlifi",
 	},
 	{
 		pictures: [
@@ -77,6 +82,7 @@ let posts = [
 			"Situé à Tunis, à 14 km de l'avenue Habib Bourguiba et du parc du Belvédère, le New appartement haut standing jardins de carthage propose un bar et la climatisation. Sa réception est ouverte 24h/24. Un parking privé et une connexion Wi-Fi sont disponibles gratuitement. Cet appartement comprend une chambre, un salon, une télévision à écran plat et une cuisine équipée avec coin repas. Sa salle de bains est pourvue d’une douche et d’un lave-linge.",
 		address: "rue arosto appartement 1 ere etage, 1090 Tunis, Tunisie",
 		price: 600,
+		username: "Aicha Hamzaoui",
 	},
 	{
 		pictures: [
@@ -90,6 +96,7 @@ let posts = [
 			"Situé à Tunis, à 4,4 km de la mosquée Sidi Mahrez, le Silverwood propose un restaurant, une connexion Wi-Fi gratuite, une réception ouverte 24h/24 et un service d'étage. Cet appartement dispose d'un bar, d'un salon commun et d'un barbecue. Cet appartement climatisé comprend 2 chambres, une télévision par satellite à écran plat, un coin repas ainsi qu'une cuisine équipée d'un lave-vaisselle et d'un micro-ondes. Pour plus de commodité, l'établissement peut fournir des serviettes et du linge de lit moyennant des frais supplémentaires.",
 		address: "11 Avenue El Izdihar cite ibn khaldoun, 2062 Tunis",
 		price: 500,
+		username: "Kadija el Fan",
 	},
 	{
 		pictures: [
@@ -103,6 +110,7 @@ let posts = [
 			"Le S+1 aux jardins de carthage est situé à Tunis. Vous aurez accès à une kitchenette entièrement équipée. L'appartement comprend une télévision à écran plat. Un parking privé est disponible gratuitement sur place. Le S+1 aux jardins de carthage possède une terrasse.",
 		address: "Lac Leman, Les Berges du Lac, 1090 Tunis",
 		price: 400,
+		username: "Samira saidi",
 	},
 	{
 		pictures: [
@@ -116,6 +124,7 @@ let posts = [
 		numberOfRooms: "S+2",
 		address: "51 Avenue Mohamed Abdelwaheb, 2092 Tunis",
 		price: 600,
+		username: "Mohamed haouache",
 	},
 	{
 		pictures: [
@@ -130,6 +139,7 @@ let posts = [
 		address:
 			"residence le lac des flamants rue de ryal lac 2 tunis 1053, Les Berges",
 		price: 500,
+		username: "Badisse Naceur",
 	},
 	{
 		pictures: [
@@ -143,6 +153,7 @@ let posts = [
 			"L'Appartement de LUXE AOUINA est situé à Tunis, à 9 km du parc du Belvédère et de l'avenue Habib Bourguiba. Vous aurez accès à une cuisine entièrement équipée. Cet appartement dispose d'une télévision à écran plat. Un parking privé est disponible gratuitement sur place. L'Appartement de LUXE AOUINA possède une terrasse.",
 		address: "Aouina, 4216 Tunis, Tunisie",
 		price: 450,
+		username: "Mostfa Aribi",
 	},
 ];
 
