@@ -105,6 +105,7 @@ module.exports = {
 
             res.status(200).json(user.ownerPosts);
         } catch (error) {
+            console.log(error);
             next(error);
         }
     },
